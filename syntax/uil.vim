@@ -18,6 +18,8 @@ syn keyword uilType	exported	file		include
 syn keyword uilType	module		object		procedure value
 syn keyword uilType	user_defined	xbitmapfile     list
 
+syn keyword uilOperator	unmanaged gadget
+
 syn keyword uilTodo contained	TODO
 
 " String and Character contstants
@@ -75,6 +77,7 @@ if version >= 508 || !exists("did_uil_syn_inits")
   HiLink uilComment		Comment
   HiLink uilSpecial		Special
   HiLink uilTodo		Todo
+  HiLink uilOperator            Operator
 
   delcommand HiLink
 endif
@@ -83,13 +86,13 @@ setlocal commentstring=!\ \ %s
 setlocal comments+=:!\ \ 
 setlocal formatoptions+=ron
 
-:if exists("g:uil_folding")
-   :setlocal foldmethod=indent
-   :setlocal foldignore=!
-   :setlocal tabstop=8
-   :setlocal softtabstop=4
-   :setlocal shiftwidth=4
-:endif
+if exists("g:uil_folding")
+   setlocal foldmethod=indent
+   setlocal foldignore=!
+   setlocal tabstop=8
+   setlocal softtabstop=4
+   setlocal shiftwidth=4
+endif
 
 
 let b:current_syntax = "uil"
